@@ -38,9 +38,10 @@ class StratusApp(StratusServerApp):
         try:
             server_secret_file = os.path.join( self.secret_keys_dir, "server.key_secret" )
             server_public, server_secret = zmq.auth.load_certificate(server_secret_file)
-            self.request_socket.curve_secretkey = server_secret
-            self.request_socket.curve_publickey = server_public
-            self.request_socket.curve_server = True
+        # TODO: this is commented to avoid key checking
+            #self.request_socket.curve_secretkey = server_secret
+            #self.request_socket.curve_publickey = server_public
+            #self.request_socket.curve_server = True
             self.request_socket.bind( "tcp://{}:{}".format( self.client_address, self.request_port ) )
             self.logger.info( "@@STRATUS-APP --> Bound authenticated request socket to client at {} on port: {}".format( self.client_address, self.request_port ) )
         except Exception as err:
@@ -75,7 +76,7 @@ class StratusApp(StratusServerApp):
 
             self.auth = ThreadAuthenticator( self.zmqContext )
             self.auth.start()
-            self.auth.allow( "127.0.0.1" )
+            self.auth.allow( "192.168.0.22" )
             self.auth.allow( self.client_address )
             self.auth.configure_curve( domain='*', location=zmq.auth.CURVE_ALLOW_ANY ) # self.public_keys_dir )  # Use 'location=zmq.auth.CURVE_ALLOW_ANY' for stonehouse security
 

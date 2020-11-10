@@ -126,9 +126,9 @@ class StratusZMQResponder(Thread):
         try:
             server_secret_file = os.path.join( self.secret_keys_dir, "server.key_secret" )
             server_public, server_secret = zmq.auth.load_certificate(server_secret_file)
-            socket.curve_secretkey = server_secret
-            socket.curve_publickey = server_public
-            socket.curve_server = True
+            #socket.curve_secretkey = server_secret
+            #socket.curve_publickey = server_public
+            #socket.curve_server = True
             socket.bind( "tcp://{}:{}".format( self.client_address, self.response_port ) )
             self.logger.info( "@@SR: --> Bound authenticated response socket to client at {} on port: {}".format( self.client_address, self.response_port ) )
         except Exception as err:
