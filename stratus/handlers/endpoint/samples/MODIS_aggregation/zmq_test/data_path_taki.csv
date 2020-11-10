@@ -1,0 +1,6 @@
+Data_input_path                                                          File_prefix_name
+/umbc/xfs1/jianwu/common/MODIS_Aggregation/supriya-code/data/MYD06_L2/   MYD06_L2.A
+/umbc/xfs1/jianwu/common/MODIS_Aggregation/supriya-code/data/MYD03/      MYD03.A
+
+Data_output_path                                                         File_prefix_name
+/home/supriya/IS_Thesis/stratus_endpoint/stratus/stratus/handlers/endpoint/samples/MODIS_aggregation/data/zmq_test/result/                          MYD08_M3

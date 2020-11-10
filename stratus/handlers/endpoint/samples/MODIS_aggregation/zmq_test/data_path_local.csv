@@ -1,0 +1,6 @@
+Data_input_path                                                          File_prefix_name
+/home/supriya/IS_Thesis/stratus_endpoint/stratus/stratus/handlers/endpoint/samples/MODIS_aggregation/data/MYD06_L2/   MYD06_L2.A
+/home/supriya/IS_Thesis/stratus_endpoint/stratus/stratus/handlers/endpoint/samples/MODIS_aggregation/data/MYD03/      MYD03.A
+
+Data_output_path                                                         File_prefix_name
+/home/supriya/IS_Thesis/stratus_endpoint/stratus/stratus/handlers/endpoint/samples/MODIS_aggregation/data/zmq_test/result/                          MYD08_M3
