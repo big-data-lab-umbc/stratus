@@ -392,9 +392,12 @@ class XaOpsExecutable(Executable):
 
 
             #--------------STEP 7:  Create HDF5 file to store the result------------------------------
-            l3name  = output_prefix + '.A{:04d}{:02d}'.format(year,month)
             subname = '_baseline_monthly_v8.h5'
-            ff=h5py.File(output_dir+l3name+subname,'w')
+
+            l3name='MYD08_M3'+'A{:04d}{:02d}'.format(year,month)
+            ff=h5py.File(l3name+subname,'w')
+
+
 
             PC=ff.create_dataset('lat_bnd',data=map_lat)
             PC.attrs['units']='degrees'
@@ -422,7 +425,8 @@ class XaOpsExecutable(Executable):
             
             ff.close()
 
-            xds = xa.open_dataset(output_dir+l3name+subname)
+            xds = xa.open_dataset(l3name+subname)
+            xds.load()
             print(l3name+subname+' Saved!')
 
             # convert h5py to xarray
